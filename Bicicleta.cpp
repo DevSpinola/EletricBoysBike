@@ -1,7 +1,7 @@
 #include <LiquidCrystal.h>
 
 LiquidCrystal lcd(12, 11, 10, 5, 4, 3, 2);
-
+//Desing de cada parte da bike em bytes/bits
 byte bodyupRight[8] = {
     B00000,
     B00000,
@@ -105,6 +105,7 @@ byte lightning[8] = {
 };
 void setup()
 {
+  //Posicionamento e Desing Inicial do LCD
   lcd.begin(16, 2);
   lcd.clear();
   lcd.setCursor(2, 0);
@@ -118,6 +119,7 @@ void setup()
   lcd.write(byte(12));  
   delay(3000);
   lcd.clear();
+  //Criacao de Custom Char Byte para armazenar o posicionamento dos bits
   lcd.createChar(0, leftwheel);
   lcd.createChar(1, rightwheel);
   lcd.createChar(2, leftup);
@@ -129,6 +131,7 @@ void setup()
   lcd.createChar(10, dusttraitline);
   
 }
+//Criacao dos Vetores
 int LeftWheelVector[2] = {0, 1};
 int RightWheelVector[2] = {2, 1};
 int BodyUpVector[2] = {1, 0};
@@ -141,6 +144,7 @@ int DustTraitLine[2] = {-2, 1};
 
 void loop()
 {
+    //Iteracao para movimento da bike
   for (int i = 0; i < 16; i++)
   {
 
