@@ -94,27 +94,29 @@ byte dusttraitline[8] = {
     B01110,
 };
 byte lightning[8] = {
-  B11111,
-  B01111,
-  B01110,
-  B11100,
-  B01110,
-  B00011,
-  B00010,
-  B00100,
+  B00100,  //   X  
+  B01100,  //  XX  
+  B01100,  //  XX  
+  B11110,  // XXXXX
+  B00111,  //   XXX
+  B00110,  //   XX 
+  B01100,  //  XX  
+  B01000   //  X   
 };
 void setup()
 {
   lcd.begin(16, 2);
   lcd.clear();
-  lcd.setCursor(4, 0);
-  lcd.print("Eletrics");
-  lcd.setCursor(3, 1);
-  lcd.print("Boys Bike!");
+  lcd.setCursor(2, 0);
+  lcd.print("Eletric Boys");
+  lcd.setCursor(6, 1);
+  lcd.print("Bike");
   lcd.createChar(12, lightning);
-  lcd.setCursor(4, 1);
+  lcd.setCursor(4,1);
   lcd.write(byte(12));  
-  delay(2500);
+  lcd.setCursor(11,1);
+  lcd.write(byte(12));  
+  delay(3000);
   lcd.clear();
   lcd.createChar(0, leftwheel);
   lcd.createChar(1, rightwheel);
